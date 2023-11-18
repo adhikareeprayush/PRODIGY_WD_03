@@ -1,3 +1,4 @@
+// Get DOM elements
 var ai =  document.getElementById("ai");
 var friend = document.getElementById("friend");
 
@@ -6,18 +7,18 @@ var qsn1 = document.getElementById("qsn1");
 
 var restart = document.getElementById("restart");
 
+// Event listener for restart button
 if(restart){
     restart.addEventListener("click", function(){
         location.reload();
     });
 }
 
-
-
 var player1 = document.getElementById("player1");
 var player2 = document.getElementById("player2");
 var isAI=null, isPlayer1First=null;
 
+// Event listeners for player and AI selection
 ai.addEventListener("click", function(){
     qsn2.style.display = "block";
     isAI = 1;
@@ -45,13 +46,14 @@ player2.addEventListener("click", function(){
     checkPlayers(isAI, isPlayer1First);
 });
 
+// Enable clicking on the game board
 function enableClick(){
 let box = document.getElementById("board");
 box.style.pointerEvents = "auto";
 }
 
 
-
+// Game state variables
 var board = ['','','','','','','','',''];
 var gameState = "ongoing";  //status can be over, ongoing, draw
 var currentPlayer = 'X';
