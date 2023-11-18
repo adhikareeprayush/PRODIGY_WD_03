@@ -1,3 +1,13 @@
+/*
+  Project Information:
+  - Project Owner: Prayush Adhikari
+  - Project Submission: This project has been submitted to Prodigy Info Tech.
+  - Role: Web Development Intern
+
+  Copyright © 2023 Prayush Adhikari. All Rights Reserved.
+  Unauthorized copying or reproduction of this file, in part or whole,
+  without express permission from the copyright owner is prohibited.
+*/
 // Get DOM elements
 var ai =  document.getElementById("ai");
 var friend = document.getElementById("friend");
