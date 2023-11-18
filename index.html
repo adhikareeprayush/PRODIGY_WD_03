@@ -1,35 +1,57 @@
+<!-- 
+  Project Information:
+  - Project Owner: Prayush Adhikari
+  - Project Submission: This project has been submitted to Prodigy Info Tech.
+  - Role: Web Development Intern
+
+  Copyright © 2023 Prayush Adhikari. All Rights Reserved.
+  Unauthorized copying or reproduction of this file, in part or whole,
+  without express permission from the copyright owner is prohibited. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Set character encoding -->
     <meta charset="UTF-8">
+    <!-- Make the webpage responsive to various devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Set the title of the webpage -->
     <title>Tic Tac Toe</title>
 </head>
 <body>
     
-
-
+<!-- Container for the game -->
 <div class="container" id="container">
+    <!-- Winning message display area -->
     <div id="winning-message" class="winning-message">
+        <!-- Display game status (e.g., "It's a draw!") -->
         <div class="game-status" id="game-status"></div>
+        <!-- Display the winner (e.g., "Player X wins!") -->
         <div class="winner" id="winner"></div>
     </div>
+    <!-- Question: Play against computer or friend? -->
     <div class="question" id="qsn1">
         <div class="qsn-txt">Play Against?</div>
-            <div class="btns">
-                <button class="btn-player" id="ai">COMPUTER</button>
-                <button class="btn-player" id="friend">FRIEND</button>
-            </div>       
-    </div>
-    <div class="question" id="qsn2">
-        <div class="qsn-txt">Who Goes First?</div>
-            <div class="btns">
-                <button class="btn-player" id="player1">COMPUTER</button>
-                <button class="btn-player" id="player2">YOU</button>
+        <!-- Buttons to select opponent type -->
+        <div class="btns">
+            <button class="btn-player" id="ai">COMPUTER</button>
+            <button class="btn-player" id="friend">FRIEND</button>
         </div>       
     </div>
+    <!-- Question: Who goes first? -->
+    <div class="question" id="qsn2">
+        <div class="qsn-txt">Who Goes First?</div>
+        <!-- Buttons to select starting player -->
+        <div class="btns">
+            <button class="btn-player" id="player1">COMPUTER</button>
+            <button class="btn-player" id="player2">YOU</button>
+        </div>       
+    </div>
+    <!-- Game board -->
     <div class="board" id="board">
+        <!-- Individual cells of the game board with click event handler -->
         <div class="cell" id="0" onclick="makeMove(0);"></div>
         <div class="cell" id="1" onclick="makeMove(1);"></div>
         <div class="cell" id="2" onclick="makeMove(2);"></div>
@@ -40,18 +62,16 @@
         <div class="cell" id="7" onclick="makeMove(7);"></div>
         <div class="cell" id="8" onclick="makeMove(8);"></div>
     </div>
+    <!-- Button to restart the game -->
     <div class="btn-restart" id="restart">RESTART</div>
 </div>
 
-
- <!-- Credits -->
+ <!-- Credits for the design and development -->
  <div id="credit">
     Design and Developed By <a href="https://www.linkedin.com/in/prayushadhikari/">Prayush Adhikari</a>
 </div>
 
-
-
-
-    <script src="script.js"></script>
+<!-- Link to external JavaScript file -->
+<script src="script.js"></script>
 </body>
 </html>
