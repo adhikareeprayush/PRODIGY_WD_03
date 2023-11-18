@@ -1,27 +1,41 @@
+/*
+  Project Information:
+  - Project Owner: Prayush Adhikari
+  - Project Submission: This project has been submitted to Prodigy Info Tech.
+  - Role: Web Development Intern
+
+  Copyright © 2023 Prayush Adhikari. All Rights Reserved.
+  Unauthorized copying or reproduction of this file, in part or whole,
+  without express permission from the copyright owner is prohibited.
+*/
+
+/* Importing custom fonts for styling */
 @import url('https://fonts.cdnfonts.com/css/vtks-espinhuda');
 @import url('https://fonts.cdnfonts.com/css/bodonitown');
 
-
-*{
+/* Global styling for all elements */
+* {
     box-sizing: border-box;
 }
 
-:root{
-    --cell-size:120px;
-    --mark-size: calc(var(--cell-size)*.9);
+/* CSS variables for consistent sizing */
+:root {
+    --cell-size: 120px;
+    --mark-size: calc(var(--cell-size) * .9);
 }
 
-html,body{
+/* Styling for the entire webpage */
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
-
     height: 100%;
     width: 100%;
 }
 
-body{
+/* Background styling */
+body {
     background-image: url(bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,21 +43,22 @@ body{
     position: relative;
 }
 
-.container{
+/* Styling for the main container holding the game elements */
+.container {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    color:white;
+    transform: translate(-50%, -50%);
+    color: white;
     text-align: center;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#board{
+/* Styling for the game board */
+#board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
@@ -51,163 +66,169 @@ body{
     align-content: center;
     align-items: center;
     pointer-events: none;
-
     color: white;
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-fill-color: transparent; 
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
 }
 
-.cell{
-    height:var(--cell-size);
+/* Styling for individual cells in the game board */
+.cell {
+    height: var(--cell-size);
     width: var(--cell-size);
     border: 1px solid rgb(81, 81, 81);
     font-size: 60px;
     text-align: center;
     cursor: pointer;
-    background-color:transparent;
+    background-color: transparent;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
+/* Removing borders for specific cells to create the grid effect */
 .cell:first-child,
 .cell:nth-child(2),
-.cell:nth-child(3){
+.cell:nth-child(3) {
     border-top: none;
 }
 
 .cell:nth-child(7),
 .cell:nth-child(8),
-.cell:nth-child(9){
+.cell:nth-child(9) {
     border-bottom: none;
 }
 
 .cell:nth-child(1),
 .cell:nth-child(4),
-.cell:nth-child(7){
+.cell:nth-child(7) {
     border-left: none;
 }
 
 .cell:nth-child(3),
 .cell:nth-child(6),
-.cell:nth-child(9){
+.cell:nth-child(9) {
     border-right: none;
 }
 
-#qsn2{
+/* Styling for the second question (Who Goes First?) initially hidden */
+#qsn2 {
     display: none;
 }
 
-.btns{
+/* Styling for buttons to select opponent and starting player */
+.btns {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap:40px;
+    gap: 40px;
     align-items: center;
-    margin-top:0px;
+    margin-top: 0px;
 }
 
-.btn-player{
-    padding:10px;
+.btn-player {
+    padding: 10px;
     font-family: 'Bodonitown', sans-serif;
     text-align: center;
-    cursor:pointer;
-    width:fit-content;
-    margin-top:30px;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 30px;
     background-color: transparent;
-    color:white;
+    color: white;
     transition: all 0.2s ease-in-out;
 }
 
-.btn-player:hover{
+.btn-player:hover {
     background-color: #eee;
-    color:black;
+    color: black;
 }
 
-.btn-restart{
-    padding:10px;
+/* Styling for the restart button */
+.btn-restart {
+    padding: 10px;
     font-family: 'Bodonitown', sans-serif;
     text-align: center;
-    cursor:pointer;
-    width:fit-content;
-    margin-top:30px;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 30px;
     background-color: #CD5C08;
-    box-shadow: 20px 30px 30px rgba(0,0,0,1);
-    color:white;
+    box-shadow: 20px 30px 30px rgba(0, 0, 0, 1);
+    color: white;
     display: none;
     transition: all 0.2s ease-in-out;
 }
 
-.btn-restart:hover{
+.btn-restart:hover {
     background-color: #eee;
-    color:black;
+    color: black;
 }
 
-.question{
+/* Styling for the question text */
+.question {
     text-align: center;
-    color:white;
+    color: white;
     font-family: 'Bodonitown', sans-serif;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.win{
-    box-shadow:20px 20px 20px rgba(0,0,0,0.7);
+/* Styling for winning elements */
+.win {
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.377);
-    color:red;
+    color: red;
 }
 
-.win-row{
-    box-shadow: 30px 30px 100px rgba(0,0,0,0.7);
+.win-row {
+    box-shadow: 30px 30px 100px rgba(0, 0, 0, 0.7);
 }
 
-.win-col{
-    box-shadow: 30px 30px 100px rgba(0,0,0,0.7);
+.win-col {
+    box-shadow: 30px 30px 100px rgba(0, 0, 0, 0.7);
 }
 
-.winning-message{
+/* Styling for the winning message */
+.winning-message {
     text-align: center;
-    color:white;
+    color: white;
     font-family: 'Bodonitown', sans-serif;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.game-status{
-    color:#FF8080;
+/* Styling for game status */
+.game-status {
+    color: #FF8080;
 }
 
+/* Media query for responsive design */
 @media only screen and (max-width: 600px) {
-    .winning-message{
+    /* Adjusting font sizes and cell size for smaller screens */
+    .winning-message {
         font-size: 20px;
     }
-    .question{
+    .question {
         font-size: 20px;
     }
-
-    .btn-player{
+    .btn-player {
         font-size: 12px;
     }
-
-    .btn-restart{
+    .btn-restart {
         font-size: 12px;
     }
-
-    :root{
-        --cell-size:100px;
+    :root {
+        --cell-size: 100px;
     }
 
-    /* Credit Section */
+    /* Styling for the credit section at the bottom */
     #credit {
         position: absolute;
         bottom: 5px;
         right: 10px;
         user-select: none;
         font-size: 10px;
-        color:#eee;
+        color: #eee;
     }
 
     #credit a {
@@ -219,16 +240,14 @@ body{
         color: rgb(100, 197, 165);
         text-decoration: underline;
     }
-
 }
 
-
-/* Credit Section */
+/* Styling for the credit section */
 #credit {
     position: absolute;
     bottom: 5px;
     right: 10px;
-    color:white;
+    color: white;
     user-select: none;
 }
 
